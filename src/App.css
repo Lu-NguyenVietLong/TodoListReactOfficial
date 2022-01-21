@@ -344,12 +344,14 @@ h1 {
 }
 
 .pagination {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    position: fixed;
-    bottom: 0px;
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  box-sizing: border-box;
 }
 
 .pagination .number-page {
@@ -370,4 +372,4 @@ h1 {
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: rgb(173, 170, 170);}

@@ -149,6 +149,20 @@ function TodoList() {
 
     const paginate = pageNumber => setCurrentPage(pageNumber)
 
+    const handlePrev = () => {
+        let Prev = currentPage -1
+        if (Prev > 0) {
+            setCurrentPage(Prev)
+        }
+    }
+
+    const handleNext = () => {
+        let Next = currentPage+1
+        if (Next <= Math.ceil(fillterTodos.length / postsPerPage)) {
+            setCurrentPage(Next)
+        }
+    }
+
     
     return (
         <div>
@@ -182,7 +196,13 @@ function TodoList() {
                 }
                 
             </div>
-            <Pagination postsPerPage={postsPerPage} totalPosts={fillterTodos.length} paginate={paginate}  currentPage={currentPage}/>
+            <Pagination postsPerPage={postsPerPage} 
+            totalPosts={fillterTodos.length} 
+            paginate={paginate}  
+            currentPage={currentPage}
+            handlePrev={handlePrev}
+            handleNext={handleNext}
+            />
         </div>
     )
 }
