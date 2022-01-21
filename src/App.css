@@ -16,7 +16,7 @@
   background-color: #292f38;
   width: 25%;
   min-width: 550px;
-  min-height: 650px;
+  min-height: 630px;
   height: auto;
   padding: 30px;
   box-sizing: border-box;
@@ -252,3 +252,122 @@ h1 {
   padding: -3px 7px;
   border-radius: 10px;
 }
+
+
+
+.modal-delete-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+  background-color: #fff;
+  width: 800px;
+  max-width: calc(100%-32px);
+  min-height: 200px;
+  position: relative;
+}
+
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+
+.modal-container {
+  background-color: #fff;
+  min-height: 80px;
+  position: relative;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+  left: 38%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-container .modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    border: none;
+    background: none;
+}
+
+.modal-container .modal-close:hover {
+  opacity: 1;
+}
+
+.modal-container .modal-footer {
+  margin-top: 10px;
+}
+
+.modal-container .modal-footer button {
+  min-width: 40px;
+  background-color: #0b850b;
+  color: #ccc;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  outline: none;
+  cursor: pointer;
+  padding: 7px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+}
+
+.pagination {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    position: fixed;
+    bottom: 0px;
+}
+
+.pagination .number-page {
+  bottom: 0;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border-radius:20px;
+  border: 1px solid rgb(94, 84, 84);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

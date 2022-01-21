@@ -3,6 +3,7 @@ import TodoInput from './TodoInput'
 import Todo from './Todo'
 import TodoFillter from './TodoFillter'
 import TodoSearch from './TodoSearch'
+import Pagination from './Pagination'
 import moment from 'moment'
 
 function TodoList() {
@@ -11,6 +12,8 @@ function TodoList() {
     const [status, setStatus] = useState('all')
     const [fillterTodos, setFillterTodos] = useState([])
     const [searchTodo, setSearchTodo] = useState('')
+    const [currentPage, setCurrentPage] = useState(1)
+    const [postsPerPage] = useState(4)
 
     useEffect(() => {
         handleFillter()
@@ -130,6 +133,22 @@ function TodoList() {
                 break;
         }
     }
+
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+
+    const currentPosts = fillterTodos.filter(todoValue => {
+        if (searchTodo === '') {
+            return todoValue
+        } else if (todoValue.text.toLowerCase().includes(searchTodo.toLowerCase())) {
+            return todoValue
+        }
+    })
+    .slice(indexOfFirstPost, indexOfLastPost)
+
+
+    const paginate = pageNumber => setCurrentPage(pageNumber)
+
     
     return (
         <div>
@@ -148,13 +167,8 @@ function TodoList() {
             </div>
             <div className='todo-container-item'>
                 {
-                    fillterTodos.filter(todoValue => {
-                        if (searchTodo === '') {
-                            return todoValue
-                        } else if (todoValue.text.toLowerCase().includes(searchTodo.toLowerCase())) {
-                            return todoValue
-                        }
-                    }).map( (todo, index) =>(
+                    // fillterTodos.filter
+                    currentPosts.map( (todo, index) =>(
                         <Todo key={index}  
                         todo={todo} 
                         removeTodo={removeTodo} 
@@ -166,7 +180,9 @@ function TodoList() {
                         />
                     ))
                 }
+                
             </div>
+            <Pagination postsPerPage={postsPerPage} totalPosts={fillterTodos.length} paginate={paginate}  currentPage={currentPage}/>
         </div>
     )
 }
